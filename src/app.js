@@ -7,6 +7,7 @@ const app = express();
 
 app.use(cors());
 
+// Utiliza as rotas no servidor, conforme importado do arquivo
 app.use(routes);
 
 
