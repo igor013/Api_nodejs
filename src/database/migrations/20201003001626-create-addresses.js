@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('cad_addresses', {
       id: {
         type: Sequelize.INTEGER.UNSIGNED,
@@ -11,9 +11,8 @@ module.exports = {
       },
       id_user: {
         type: Sequelize.INTEGER.UNSIGNED,
-        references: {model:"cad_users",key:"id"},
+        references: { model:'cad_users', key: 'id' },
         allowNull: false,
-        onUpdate: "CASCADE",
         onDelete: "CASCADE"       
       },
       address01:{
@@ -40,21 +39,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      created_at:{
+      created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: new Date()
+        allowNull: false
       },
-      updated_at:{
+      updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: new Date()
-      },
+        allowNull: false
+      }
     });
-   
+
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('cad_addresses');
   }
 };

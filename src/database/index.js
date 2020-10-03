@@ -1,11 +1,13 @@
 import Sequelize from 'sequelize';
 
 import databaseConfig from '../config/database';
+import Accreditedcity from '../app/models/Accreditedcity';
 import User from '../app/models/User';
 import Address from '../app/models/Address';
 
 
 const models = [
+  Accreditedcity,
   User,  
   Address
 ];
