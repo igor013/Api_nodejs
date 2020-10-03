@@ -29,7 +29,7 @@ module.exports = {
         allowNull: true,       
       },
       zipcode:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,        
       },
       state:{
@@ -42,11 +42,13 @@ module.exports = {
       },
       created_at:{
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: new Date()
       },
       updated_at:{
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        defaultValue: new Date()
       },
     });
    

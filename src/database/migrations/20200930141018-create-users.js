@@ -28,6 +28,11 @@ module.exports = {
         allowNull: false,
       
       },
+      ismaster:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue:false,
+      },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false

@@ -8,6 +8,7 @@ class User extends Model {
       mail: Sequelize.STRING,
       age: Sequelize.INTEGER,
       pass: Sequelize.STRING,
+      ismaster:Sequelize.BOOLEAN,
     },
       {
         sequelize,
