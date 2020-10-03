@@ -2,7 +2,6 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-
     return queryInterface.createTable('cad_addresses', {
       id: {
         type: Sequelize.INTEGER.UNSIGNED,
@@ -27,18 +26,15 @@ module.exports = {
       },
       reference:{
         type: Sequelize.STRING,
-        allowNull: true,
-       
+        allowNull: true,       
       },
       zipcode:{
         type: Sequelize.INTEGER,
-        allowNull: false,
-        
+        allowNull: false,        
       },
       state:{
         type: Sequelize.STRING,
-        allowNull: false,
-      
+        allowNull: false,      
       },
       city:{
         type: Sequelize.STRING,
@@ -57,6 +53,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('cad_adresses');
+    return queryInterface.dropTable('cad_addresses');
   }
 };
