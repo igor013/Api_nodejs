@@ -9,6 +9,12 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      id_city: {
+        type: Sequelize.INTEGER.UNSIGNED,
+        references: {model:"cad_accreditedcities",key:"id"},
+        allowNull: false,
+        onDelete: "CASCADE"       
+      },
       name:{
         type: Sequelize.STRING,
         allowNull: false,
@@ -27,6 +33,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       
+      },
+      ismaster:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue:false,
       },
       created_at:{
         type: Sequelize.DATE,
