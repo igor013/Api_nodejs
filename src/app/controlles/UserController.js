@@ -3,7 +3,9 @@ import User from "../models/User";
 class UserController {
   async index(req, res) {
     try {
-      let users = await User.findAll();
+      let users = await User.findAll({
+        where:{status:"A"}
+      });
 
       return res.status(200).json(users);
     } catch (error) {
@@ -52,7 +54,7 @@ class UserController {
   }
 
   async destroy(req, res) {
-    let userexist = await User.findByPk(req.params.id);
+    let userexist = await User.findByPk(req.params.id); //
 
     if (!userexist) {
       return res.status(400).json({ error: "ID não existe!" });
@@ -61,7 +63,8 @@ class UserController {
       return res.status(400).json({ error: "Usuário Master não pode ser excluido" });
     }
     try {
-      await userexist.destroy();
+      //await userexist.destroy(); // exclui o usuário
+      await userexist.update({status:"D"}); //
       return res.status(200).json({ messege: "Usuario deletado!" });
     } catch (error) {
       //console.log("ocorreu um erro", error);

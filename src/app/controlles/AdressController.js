@@ -18,15 +18,15 @@ class AddressController {
 
 
   async store(req, res) {
-    // console.log(req.body);
     if (!req.body) {
       return res.status(400).json({ message: "Dados não existente!" });
     }
     try {
       await Address.create(req.body);
+      console.log(req.body);
       return res.status(201).json({ message: "Endereço cadastrado!" });
     } catch (error) {
-      // console.log("ocorreu um erro", error)
+       console.log("ocorreu um erro", error)
       return res.status(400).json({ error: "ocorreu um erro" });
     }
 

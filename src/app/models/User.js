@@ -10,6 +10,7 @@ class User extends Model {
       age: Sequelize.INTEGER,
       pass: Sequelize.STRING,
       ismaster:Sequelize.BOOLEAN,
+      status:Sequelize.ENUM("A"|"I"|"E")
     },
       {
         sequelize,
