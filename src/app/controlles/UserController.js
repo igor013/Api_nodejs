@@ -1,15 +1,30 @@
 import User from "../models/User";
+import Address from "../models/Address";
 
 class UserController {
   async index(req, res) {
+    let statusfild = req.query.status;
+    if (!statusfild || statusfild != "I" && statusfild != "E"){
+
+      statusfild = "A";
+
+    }
     try {
       let users = await User.findAll({
-        where:{status:"A"}
+        where:{status:statusfild},
+        attributes:['id', 'name', 'mail', 'age', 'status'],
+        include:[
+          {
+            model: Address,
+            as: 'address',
+            attributes:['id', 'address01', 'address02', 'zipcode', 'state', 'city'],
+          }
+        ]
       });
 
       return res.status(200).json(users);
     } catch (error) {
-      // console.log("ocorreu um erro", error);
+      console.log("ocorreu um erro", error);
       return res.status(400).json({ error: "ocorreu um erro" });
     }
   }
